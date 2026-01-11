@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard del simulador de laboratorio de química ChemLab">
+    <title>ChemLab Simulator - Dashboard</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="src/Logo de simulador de laboratorio químico.png">
+</head>
+<body>
+    <!-- Skip link para navegación por teclado -->
+    <a href="#main-content" class="skip-link visually-hidden-focusable">Saltar al contenido principal</a>
+    
+    <!-- Header con navegación -->
+    <header role="banner" class="bg-primary text-white py-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Navegación principal">
+                <div class="container-fluid">
+                    <!-- Logo con texto alternativo -->
+                    <a class="navbar-brand" href="index.html" aria-label="ChemLab Simulator - Inicio">
+                        <img src="src/Logo de simulador de laboratorio químico.png" alt="Logo ChemLab Simulator - Átomo estilizado" width="40" height="40" class="d-inline-block align-text-top me-2">
+                        ChemLab Simulator
+                    </a>
+                    
+                    <!-- Botón de tema oscuro/claro -->
+                    <button class="btn btn-outline-light btn-sm me-3" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro">
+                        <i class="fas fa-moon"></i> Tema
+                    </button>
+                     
+                    <!-- Menú de navegación responsivo -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html" aria-current="page">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="dashboard.html">Experimentos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#historial">Historial</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" 
+                                   data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menú de usuario">
+                                    <i class="fas fa-user" aria-hidden="true"></i> Usuario
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Configuración</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content" role="main" class="py-4">
+        <div class="container">
+            <!-- Encabezado jerárquico correcto -->
+            <h1 class="mb-4">Dashboard de Experimentos</h1>
+            
+            <!-- Descripción accesible -->
+            <section aria-labelledby="dashboard-description">
+                <h2 id="dashboard-description" class="h4 mb-3">Simulador de Laboratorio Virtual de Química</h2>
+                <p class="lead">Realiza experimentos químicos de manera segura y accesible. Selecciona un experimento o crea tu propia mezcla.</p>
+                
+                <!-- Alert para usuarios con lectores de pantalla -->
+                <div class="alert alert-info" role="alert" aria-live="polite">
+                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                    <strong>Consejo de accesibilidad:</strong> Puedes navegar por esta página usando la tecla Tab. Para activar botones, presiona Enter.
+                </div>
+            </section>
+
+            <div class="row mt-4">
+                <!-- Columna izquierda: Lista de experimentos -->
+                <div class="col-lg-4 mb-4">
+                    <section aria-labelledby="experiments-list" class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h2 id="experiments-list" class="h5 mb-0">Experimentos Disponibles</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group" role="list" aria-label="Lista de experimentos disponibles">
+                                <a href="#" class="list-group-item list-group-item-action active" 
+                                   role="listitem" aria-label="Experimento: Mezcla Ácido-Base, seleccionado">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h3 class="h6 mb-1">Mezcla Ácido-Base</h3>
+                                        <span class="badge bg-success">Fácil</span>
+                                    </div>
+                                    <p class="mb-1">Reacción entre HCl y NaOH con cambio de pH y temperatura.</p>
+                                    <small>Duración: 5 min</small>
+                                </a>
+                                
+                                <a href="#" class="list-group-item list-group-item-action" 
+                                   role="listitem" aria-label="Experimento: Titulación Ácido-Base">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h3 class="h6 mb-1">Titulación Ácido-Base</h3>
+                                        <span class="badge bg-warning">Intermedio</span>
+                                    </div>
+                                    <p class="mb-1">Determinación de concentración mediante punto de equivalencia.</p>
+                                    <small>Duración: 10 min</small>
+                                </a>
+                                
+                                <a href="#" class="list-group-item list-group-item-action" 
+                                   role="listitem" aria-label="Experimento: Formación de Precipitado">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h3 class="h6 mb-1">Formación de Precipitado</h3>
+                                        <span class="badge bg-warning">Intermedio</span>
+                                    </div>
+                                    <p class="mb-1">Reacción entre AgNO₃ y NaCl para observar precipitado blanco.</p>
+                                    <small>Duración: 7 min</span>
+                                </a>
+                                
+                                <a href="#" class="list-group-item list-group-item-action" 
+                                   role="listitem" aria-label="Experimento: Reacción Redox">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h3 class="h6 mb-1">Reacción Redox</h3>
+                                        <span class="badge bg-danger">Avanzado</span>
+                                    </div>
+                                    <p class="mb-1">Oxidación del hierro y reducción del cobre.</p>
+                                    <small>Duración: 15 min</small>
+                                </a>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary w-100" id="new-experiment-btn" aria-label="Crear nuevo experimento personalizado">
+                                    <i class="fas fa-plus" aria-hidden="true"></i> Crear Experimento Personalizado
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Columna derecha: Simulador interactivo -->
+                <div class="col-lg-8">
+                    <section aria-labelledby="simulator-section" class="card">
+                        <div class="card-header bg-success text-white">
+                            <h2 id="simulator-section" class="h5 mb-0">Simulador de Mezclas Químicas</h2>
+                        </div>
+                        
+                        <div class="card-body">
+                            <!-- Controles del simulador -->
+                            <div class="row mb-4" role="form" aria-labelledby="simulator-controls">
+                                <div class="col-md-6">
+                                    <h3 id="simulator-controls" class="h6">Selección de Reactivos</h3>
+                                    
+                                    <div class="mb-3">
+                                        <label for="reactivo1" class="form-label">Reactivo 1:</label>
+                                        <select class="form-select" id="reactivo1" aria-describedby="help-reactivo1">
+                                            <option value="" selected disabled>Selecciona un reactivo</option>
+                                            <option value="hcl">Ácido Clorhídrico (HCl) 1M</option>
+                                            <option value="naoh">Hidróxido de Sodio (NaOH) 1M</option>
+                                            <option value="agno3">Nitrato de Plata (AgNO₃) 0.1M</option>
+                                            <option value="nacl">Cloruro de Sodio (NaCl) 0.1M</option>
+                                            <option value="cuso4">Sulfato de Cobre (CuSO₄) 0.5M</option>
+                                            <option value="h2o2">Peróxido de Hidrógeno (H₂O₂) 3%</option>
+                                        </select>
+                                        <div id="help-reactivo1" class="form-text">Selecciona el primer reactivo para la mezcla</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="cantidad1" class="form-label">Cantidad (mL):</label>
+                                        <input type="range" class="form-range" id="cantidad1" min="1" max="100" value="50" 
+                                               aria-label="Cantidad del reactivo 1 en mililitros">
+                                        <div class="d-flex justify-content-between">
+                                            <span>1 mL</span>
+                                            <span id="cantidad1-value">50 mL</span>
+                                            <span>100 mL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h3 class="h6">Configuración Experimental</h3>
+                                    
+                                    <div class="mb-3">
+                                        <label for="reactivo2" class="form-label">Reactivo 2:</label>
+                                        <select class="form-select" id="reactivo2" aria-describedby="help-reactivo2">
+                                            <option value="" selected disabled>Selecciona un reactivo</option>
+                                            <option value="hcl">Ácido Clorhídrico (HCl) 1M</option>
+                                            <option value="naoh">Hidróxido de Sodio (NaOH) 1M</option>
+                                            <option value="agno3">Nitrato de Plata (AgNO₃) 0.1M</option>
+                                            <option value="nacl">Cloruro de Sodio (NaCl) 0.1M</option>
+                                            <option value="cuso4">Sulfato de Cobre (CuSO₄) 0.5M</option>
+                                            <option value="h2o2">Peróxido de Hidrógeno (H₂O₂) 3%</option>
+                                        </select>
+                                        <div id="help-reactivo2" class="form-text">Selecciona el segundo reactivo para la mezcla</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="cantidad2" class="form-label">Cantidad (mL):</label>
+                                        <input type="range" class="form-range" id="cantidad2" min="1" max="100" value="50"
+                                               aria-label="Cantidad del reactivo 2 en mililitros">
+                                        <div class="d-flex justify-content-between">
+                                            <span>1 mL</span>
+                                            <span id="cantidad2-value">50 mL</span>
+                                            <span>100 mL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botones de acción accesibles -->
+                            <div class="d-flex flex-wrap gap-2 mb-4" role="toolbar" aria-label="Herramientas del simulador">
+                                <button class="btn btn-primary" id="mezclar-btn" aria-label="Mezclar reactivos seleccionados">
+                                    <i class="fas fa-flask" aria-hidden="true"></i> Mezclar Reactivos
+                                </button>
+                                <button class="btn btn-warning" id="calentar-btn" aria-label="Aplicar calor a la mezcla">
+                                    <i class="fas fa-fire" aria-hidden="true"></i> Aplicar Calor
+                                </button>
+                                <button class="btn btn-danger" id="limpiar-btn" aria-label="Limpiar el área de experimentación">
+                                    <i class="fas fa-trash" aria-hidden="true"></i> Limpiar Todo
+                                </button>
+                                <button class="btn btn-info" id="audio-desc-btn" aria-label="Activar descripción de audio para el experimento">
+                                    <i class="fas fa-volume-up" aria-hidden="true"></i> Audio Descripción
+                                </button>
+                            </div>
+
+                            <!-- Área de visualización del experimento -->
+                            <div class="experiment-area mb-4 p-4 border rounded bg-light" 
+                                 role="region" 
+                                 aria-labelledby="experiment-visualization"
+                                 aria-live="polite">
+                                <h3 id="experiment-visualization" class="h6">Visualización del Experimento</h3>
+                                
+                                <div class="d-flex justify-content-center align-items-center" style="min-height: 250px;">
+                                    <!-- Contenedor de la reacción visual -->
+                                    <div id="reaction-container" class="text-center">
+                                        <div id="beaker" class="beaker mx-auto">
+                                            <div id="liquid" class="liquid"></div>
+                                        </div>
+                                        <div id="reaction-status" class="mt-3">
+                                            <p id="status-text" class="mb-0">Selecciona reactivos y haz clic en "Mezclar"</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Indicadores de medición -->
+                                    <div id="measurements" class="ms-4 d-none">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="h6">Mediciones:</h4>
+                                                <ul class="list-unstyled">
+                                                    <li><strong>Temperatura:</strong> <span id="temp-value">25</span>°C</li>
+                                                    <li><strong>pH:</strong> <span id="ph-value">7.0</span></li>
+                                                    <li><strong>Color:</strong> <span id="color-value">Incoloro</span></li>
+                                                    <li><strong>Estado:</strong> <span id="state-value">Inactivo</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mensajes dinámicos de resultado -->
+                                <div id="result-message" class="mt-3 alert d-none" role="alert"></div>
+                            </div>
+
+                            <!-- Instrucciones accesibles -->
+                            <div class="accordion" id="instructions-accordion">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" 
+                                                data-bs-toggle="collapse" data-bs-target="#instructions-content"
+                                                aria-expanded="false" aria-controls="instructions-content">
+                                            <i class="fas fa-info-circle me-2" aria-hidden="true"></i>
+                                            Instrucciones de Seguridad y Accesibilidad
+                                        </button>
+                                    </h3>
+                                    <div id="instructions-content" class="accordion-collapse collapse" 
+                                         data-bs-parent="#instructions-accordion">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li><strong>Navegación por teclado:</strong> Usa Tab para moverte entre elementos y Enter para activarlos.</li>
+                                                <li><strong>Contraste:</strong> Usa el botón "Tema" en la barra de navegación para cambiar entre modo claro y oscuro.</li>
+                                                <li><strong>Descripción de audio:</strong> Activa la descripción de audio para una explicación paso a paso.</li>
+                                                <li><strong>Seguridad en laboratorio:</strong> En un laboratorio real, siempre usa equipo de protección adecuado.</li>
+                                                <li><strong>Reactivos incompatibles:</strong> Algunas combinaciones pueden ser peligrosas en la vida real.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Sección de historial (simulada) -->
+            <section id="historial" class="mt-5" aria-labelledby="historial-heading">
+                <h2 id="historial-heading" class="h4 mb-3">Historial de Experimentos Recientes</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped" aria-describedby="historial-description">
+                        <caption id="historial-description" class="visually-hidden">Tabla con el historial de experimentos realizados recientemente</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Experimento</th>
+                                <th scope="col">Reactivos</th>
+                                <th scope="col">Resultado</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>05/08/2025</td>
+                                <td>Mezcla Ácido-Base</td>
+                                <td>HCl + NaOH</td>
+                                <td><span class="badge bg-success">Neutralización exitosa</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" aria-label="Repetir experimento Mezcla Ácido-Base">
+                                        Repetir
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>04/08/2025</td>
+                                <td>Formación de Precipitado</td>
+                                <td>AgNO₃ + NaCl</td>
+                                <td><span class="badge bg-info">Precipitado blanco formado</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" aria-label="Repetir experimento Formación de Precipitado">
+                                        Repetir
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer accesible -->
+    <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="h5">ChemLab Simulator</h2>
+                    <p>Simulador de laboratorio de química accesible y educativo.</p>
+                    <p>Desarrollado con principios WCAG 2.2 para máxima accesibilidad.</p>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="h6">Enlaces rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li><a href="dashboard.html" class="text-white-50">Experimentos</a></li>
+                        <li><a href="#" class="text-white-50">Accesibilidad</a></li>
+                        <li><a href="#" class="text-white-50">Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="h6">Accesibilidad</h3>
+                    <ul class="list-unstyled">
+                        <li><button class="btn btn-link p-0 text-white-50" id="high-contrast-btn" aria-label="Activar alto contraste">Alto Contraste</button></li>
+                        <li><button class="btn btn-link p-0 text-white-50" id="font-size-increase" aria-label="Aumentar tamaño de fuente">A+ Tamaño de texto</button></li>
+                        <li><button class="btn btn-link p-0 text-white-50" id="font-size-decrease" aria-label="Disminuir tamaño de fuente">A- Tamaño de texto</button></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 ChemLab Simulator. Todos los derechos reservados.</p>
+                <p class="small">Esta aplicación cumple con las Pautas de Accesibilidad WCAG 2.2 Nivel AA</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/simulator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

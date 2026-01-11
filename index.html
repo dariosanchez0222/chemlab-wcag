@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ChemLab Simulator - Simulador interactivo de laboratorio de química virtual accesible">
+    <title>ChemLab Simulator - Laboratorio Virtual de Química</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="src/Logo de simulador de laboratorio químico.png">
+    <link rel="apple-touch-icon" href="src/Logo de simulador de laboratorio químico.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ChemLab Simulator">
+    <meta property="og:description" content="Simulador interactivo de laboratorio de química virtual">
+    <meta property="og:image" content="src/images (1).jpg">
+    <meta property="og:url" content="https://tu-pagina.com">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Skip link para navegación por teclado -->
+    <a href="#main-content" class="skip-link visually-hidden-focusable">Saltar al contenido principal</a>
+    
+    <!-- Header -->
+    <header role="banner" class="bg-primary text-white py-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Navegación principal">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html" aria-label="ChemLab Simulator - Inicio">
+                        <img src="src/Logo de simulador de laboratorio químico.png" alt="Logo ChemLab Simulator" width="40" height="40" class="d-inline-block align-text-top me-2">
+                        ChemLab Simulator
+                    </a>
+                    
+                    <!-- Botón de tema -->
+                    <button class="btn btn-outline-light btn-sm me-3" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro">
+                        <i class="fas fa-moon"></i> Tema
+                    </button>
+                    
+                    <!-- Menú responsivo -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html" aria-current="page">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="dashboard.html">Experimentos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#features">Características</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">Acerca de</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-light ms-2" href="login.html">
+                                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Ingresar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5" aria-labelledby="hero-title">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 id="hero-title" class="display-4 fw-bold mb-4">Laboratorio de Química Virtual</h1>
+                    <p class="lead mb-4">Experimenta de forma segura con nuestro simulador interactivo. Realiza reacciones químicas, aprende conceptos fundamentales y desarrolla habilidades prácticas sin riesgos.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="dashboard.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-flask me-2" aria-hidden="true"></i> Comenzar Experimento
+                        </a>
+                        <a href="#features" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-info-circle me-2" aria-hidden="true"></i> Conocer Más
+                        </a>
+                        <button class="btn btn-outline-secondary btn-lg" id="demo-video" aria-label="Ver video demostrativo">
+                            <i class="fas fa-play me-2" aria-hidden="true"></i> Ver Demo
+                        </button>
+                    </div>
+                    
+                    <!-- Indicadores de accesibilidad -->
+                    <div class="mt-4 accessibility-badges">
+                        <span class="badge bg-success me-2">
+                            <i class="fas fa-universal-access" aria-hidden="true"></i> WCAG 2.2 AA
+                        </span>
+                        <span class="badge bg-info me-2">
+                            <i class="fas fa-mobile-alt" aria-hidden="true"></i> Responsivo
+                        </span>
+                        <span class="badge bg-warning">
+                            <i class="fas fa-keyboard" aria-hidden="true"></i> Navegación por Teclado
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="hero-image-container">
+                        <img src="src/images (1).jpg" 
+                             alt="Estación de trabajo de laboratorio químico virtual con matraces, tubos de ensayo y equipo de seguridad digital" 
+                             class="img-fluid rounded shadow">
+                        <div class="image-caption mt-2 text-center text-muted">
+                            Simulador de laboratorio químico virtual accesible
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main id="main-content" role="main">
+        <!-- Características -->
+        <section id="features" class="py-5 bg-light" aria-labelledby="features-heading">
+            <div class="container">
+                <h2 id="features-heading" class="text-center mb-5">Características Principales</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-universal-access fa-3x text-primary" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="h5">Accesibilidad Total</h3>
+                                <p>Cumple con WCAG 2.2. Navegación por teclado, lectores de pantalla, alto contraste y tamaño de texto ajustable.</p>
+                                <ul class="text-start small">
+                                    <li>Contraste 4.5:1 mínimo</li>
+                                    <li>Etiquetas ARIA completas</li>
+                                    <li>Atajos de teclado</li>
+                                    <li>Temas claro/oscuro</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-atom fa-3x text-success" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="h5">Simulaciones Realistas</h3>
+                                <p>Reacciones químicas precisas con física y química reales. Más de 20 experimentos preconfigurados.</p>
+                                <ul class="text-start small">
+                                    <li>Reacciones ácido-base</li>
+                                    <li>Formación de precipitados</li>
+                                    <li>Titulaciones redox</li>
+                                    <li>Cambios de temperatura y pH</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="feature-icon mb-3">
+                                    <i class="fas fa-mobile-alt fa-3x text-info" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="h5">Multi-dispositivo</h3>
+                                <p>Funciona perfectamente en computadoras, tablets y teléfonos móviles. Diseño responsivo adaptativo.</p>
+                                <ul class="text-start small">
+                                    <li>Mobile-first design</li>
+                                    <li>Touch-friendly</li>
+                                    <li>Carga rápida</li>
+                                    <li>Offline disponible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experimentos destacados -->
+        <section class="py-5" aria-labelledby="experiments-heading">
+            <div class="container">
+                <h2 id="experiments-heading" class="text-center mb-5">Experimentos Destacados</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card experiment-card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="h6 mb-0">Mezcla Ácido-Base</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Neutralización entre HCl y NaOH. Observa cambios de pH y temperatura.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">Principiante</span>
+                                    <span class="text-muted small">5 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="dashboard.html" class="btn btn-sm btn-primary w-100" aria-label="Comenzar experimento de mezcla ácido-base">
+                                    Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card experiment-card h-100">
+                            <div class="card-header bg-warning text-dark">
+                                <h3 class="h6 mb-0">Titulación</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Determina concentraciones mediante punto de equivalencia con indicadores.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-warning">Intermedio</span>
+                                    <span class="text-muted small">10 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="dashboard.html" class="btn btn-sm btn-warning w-100" aria-label="Comenzar experimento de titulación">
+                                    Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card experiment-card h-100">
+                            <div class="card-header bg-success text-white">
+                                <h3 class="h6 mb-0">Precipitación</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Formación de precipitados insolubles a partir de sales solubles.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">Principiante</span>
+                                    <span class="text-muted small">7 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="dashboard.html" class="btn btn-sm btn-success w-100" aria-label="Comenzar experimento de precipitación">
+                                    Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card experiment-card h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h3 class="h6 mb-0">Reacción Redox</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Transferencia de electrones entre especies químicas. Cambios de color.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-danger">Avanzado</span>
+                                    <span class="text-muted small">15 min</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <a href="dashboard.html" class="btn btn-sm btn-danger w-100" aria-label="Comenzar experimento de reacción redox">
+                                    Comenzar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="dashboard.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-vial me-2" aria-hidden="true"></i> Ver Todos los Experimentos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accesibilidad WCAG 2.2 -->
+        <section class="py-5 bg-dark text-white" aria-labelledby="wcag-heading">
+            <div class="container">
+                <h2 id="wcag-heading" class="text-center mb-5">Cumplimiento WCAG 2.2</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <div class="wcag-icon mb-3">
+                                <i class="fas fa-eye fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5">Perceptible</h3>
+                            <p class="small">Contraste adecuado, texto alternativo, adaptable a diferentes dispositivos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <div class="wcag-icon mb-3">
+                                <i class="fas fa-keyboard fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5">Operable</h3>
+                            <p class="small">Navegación por teclado, tiempo suficiente, no causa convulsiones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <div class="wcag-icon mb-3">
+                                <i class="fas fa-brain fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5">Comprensible</h3>
+                            <p class="small">Lenguaje claro, comportamiento predecible, asistencia en entradas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <div class="wcag-icon mb-3">
+                                <i class="fas fa-shield-alt fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h5">Robusto</h3>
+                            <p class="small">HTML válido, compatible con tecnologías asistivas, etiquetas semánticas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <div class="alert alert-info d-inline-block" role="alert">
+                        <i class="fas fa-certificate me-2" aria-hidden="true"></i>
+                        <strong>Nivel de conformidad:</strong> WCAG 2.2 Nivel AA
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-5 bg-primary text-white" aria-labelledby="cta-heading">
+            <div class="container text-center">
+                <h2 id="cta-heading" class="mb-4">¿Listo para Experimentar?</h2>
+                <p class="lead mb-4">Únete a miles de estudiantes y profesionales que ya usan ChemLab Simulator</p>
+                
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="login.html" class="btn btn-light btn-lg">
+                        <i class="fas fa-user-plus me-2" aria-hidden="true"></i> Crear Cuenta Gratis
+                    </a>
+                    <a href="dashboard.html" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-flask me-2" aria-hidden="true"></i> Probar Sin Registro
+                    </a>
+                    <button class="btn btn-outline-light btn-lg" id="tour-btn" aria-label="Tomar tour guiado de la aplicación">
+                        <i class="fas fa-play-circle me-2" aria-hidden="true"></i> Tour Guiado
+                    </button>
+                </div>
+                
+                <p class="mt-4 small">
+                    <i class="fas fa-lock me-1" aria-hidden="true"></i> 100% seguro • Sin descargas • Accesible • Gratuito para educadores
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h2 class="h5 mb-3">ChemLab Simulator</h2>
+                    <p>Simulador de laboratorio de química virtual diseñado con accesibilidad como prioridad. Educativo, seguro e interactivo.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white-50 me-3" aria-label="Síguenos en Twitter">
+                            <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white-50 me-3" aria-label="Síguenos en Facebook">
+                            <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white-50 me-3" aria-label="Síguenos en Instagram">
+                            <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white-50" aria-label="Visita nuestro canal de YouTube">
+                            <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h3 class="h6 mb-3">Enlaces</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="dashboard.html" class="text-white-50">Experimentos</a></li>
+                        <li class="mb-2"><a href="login.html" class="text-white-50">Ingresar</a></li>
+                        <li class="mb-2"><a href="#features" class="text-white-50">Características</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h3 class="h6 mb-3">Recursos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Guías de Laboratorio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Tabla Periódica Interactiva</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Calculadora de Moles</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Glosario Químico</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h3 class="h6 mb-3">Accesibilidad</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <button class="btn btn-link p-0 text-white-50 text-start" id="high-contrast-btn-footer">
+                                <i class="fas fa-adjust me-1" aria-hidden="true"></i> Alto Contraste
+                            </button>
+                        </li>
+                        <li class="mb-2">
+                            <button class="btn btn-link p-0 text-white-50 text-start" id="font-increase-footer">
+                                <i class="fas fa-text-height me-1" aria-hidden="true"></i> Aumentar Texto
+                            </button>
+                        </li>
+                        <li class="mb-2">
+                            <button class="btn btn-link p-0 text-white-50 text-start" id="read-aloud-btn">
+                                <i class="fas fa-volume-up me-1" aria-hidden="true"></i> Leer en Voz Alta
+                            </button>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-white-50" aria-label="Declaración de accesibilidad detallada">
+                                <i class="fas fa-file-alt me-1" aria-hidden="true"></i> Declaración WCAG
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="bg-secondary my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small mb-0">&copy; 2025 ChemLab Simulator. Proyecto educativo sin fines de lucro.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small mb-0">
+                        <i class="fas fa-universal-access me-1" aria-hidden="true"></i>
+                        WCAG 2.2 AA • 
+                        <i class="fas fa-heart text-danger ms-2 me-1" aria-hidden="true"></i>
+                        Hecho con accesibilidad en mente
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para video demo -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="demoModalLabel" class="modal-title h5">Video Demostrativo</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="" 
+                                title="Video demostrativo de ChemLab Simulator" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="mt-3">
+                        <p><strong>Descripción del video:</strong> Demostración de las funciones principales del simulador de química, incluyendo selección de reactivos, mezcla y observación de reacciones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Inicialización -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botón de video demo
+            const demoBtn = document.getElementById('demo-video');
+            if (demoBtn) {
+                demoBtn.addEventListener('click', function() {
+                    const demoModal = new bootstrap.Modal(document.getElementById('demoModal'));
+                    demoModal.show();
+                });
+            }
+            
+            // Botón de tour
+            const tourBtn = document.getElementById('tour-btn');
+            if (tourBtn) {
+                tourBtn.addEventListener('click', function() {
+                    alert('Tour guiado iniciado. Usa las teclas de flecha para navegar.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
