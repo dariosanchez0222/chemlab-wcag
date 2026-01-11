@@ -1,0 +1,482 @@
+/* responsive.css - Estilos responsivos y accesibilidad móvil */
+
+/* ===== DISPOSITIVOS MÓVILES (hasta 576px) ===== */
+@media (max-width: 576px) {
+    /* Tipografía móvil */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    h4 { font-size: 1.125rem; }
+    h5 { font-size: 1rem; }
+    h6 { font-size: 0.875rem; }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    /* Contenedores */
+    .container, .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Header y navegación móvil */
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .navbar-brand img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .navbar-collapse {
+        background-color: var(--primary-color);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-top: 0.5rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .nav-link {
+        padding: 0.75rem;
+        border-radius: var(--border-radius);
+    }
+    
+    .nav-link:hover, .nav-link:focus {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    /* Botones móviles */
+    .btn {
+        min-height: 44px; /* Tamaño mínimo para dedos */
+        min-width: 44px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 1rem 1.5rem;
+        font-size: 1.125rem;
+    }
+    
+    .btn-sm {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        min-height: 36px;
+        min-width: 36px;
+    }
+    
+    /* Grid y layout móvil */
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+    
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2,
+    .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+    .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10,
+    .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3,
+    .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7,
+    .col-lg-8, .col-lg-9, .col-lg-auto, .col-md,
+    .col-md-1, .col-md-10, .col-md-11, .col-md-12,
+    .col-md-2, .col-md-3, .col-md-4, .col-md-5,
+    .col-md-6, .col-md-7, .col-md-8, .col-md-9,
+    .col-md-auto, .col-sm, .col-sm-1, .col-sm-10,
+    .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3,
+    .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7,
+    .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl,
+    .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12,
+    .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5,
+    .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9,
+    .col-xl-auto {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    /* Cards móviles */
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Simulador móvil */
+    .beaker {
+        width: 100px;
+        height: 150px;
+    }
+    
+    .experiment-area {
+        min-height: 200px;
+        padding: 1rem !important;
+    }
+    
+    /* Formularios móviles */
+    .form-control, .form-select {
+        font-size: 16px; /* Evita zoom automático en iOS */
+        padding: 0.875rem;
+        height: auto;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    textarea {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    /* Mejoras de accesibilidad para touch */
+    select {
+        min-height: 44px;
+    }
+    
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 1.5em;
+        height: 1.5em;
+    }
+    
+    .form-check-label {
+        padding-left: 0.5em;
+        line-height: 1.5em;
+    }
+    
+    /* Tablas responsivas */
+    .table-responsive {
+        font-size: 0.875rem;
+        border: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
+        border-radius: var(--border-radius);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table {
+        margin-bottom: 0;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        white-space: nowrap;
+    }
+    
+    /* Footer móvil */
+    footer {
+        padding: 2rem 0 !important;
+        text-align: center;
+    }
+    
+    footer .row > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    footer ul {
+        padding-left: 0;
+    }
+    
+    /* Modal móvil */
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+    
+    .modal-content {
+        border-radius: var(--border-radius);
+    }
+    
+    /* Listas móviles */
+    .list-group-item {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Mejoras de contraste en móvil */
+    @media (prefers-contrast: high) {
+        .btn {
+            border-width: 2px;
+        }
+        
+        .form-control, .form-select {
+            border-width: 2px;
+        }
+    }
+}
+
+/* ===== TABLETS (577px a 768px) ===== */
+@media (min-width: 577px) and (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .beaker {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .experiment-area {
+        min-height: 250px;
+    }
+    
+    .navbar-collapse {
+        background-color: var(--primary-color);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-top: 0.5rem;
+    }
+    
+    .container {
+        max-width: 95%;
+    }
+    
+    .col-md-6, .col-md-4, .col-md-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* ===== TABLETS LANDSCAPE (769px a 992px) ===== */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .experiment-area {
+        min-height: 280px;
+    }
+    
+    .beaker {
+        width: 130px;
+        height: 190px;
+    }
+}
+
+/* ===== ORIENTACIÓN ===== */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero-section {
+        padding: 1rem 0;
+    }
+    
+    .login-card {
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .navbar {
+        padding: 0.25rem 0;
+    }
+    
+    .card {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ===== PANTALLAS GRANDES (más de 1200px) ===== */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .beaker {
+        width: 180px;
+        height: 250px;
+    }
+    
+    .experiment-area {
+        min-height: 350px;
+    }
+}
+
+/* ===== DISPOSITIVOS TÁCTILES ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Eliminar efectos hover en dispositivos táctiles */
+    .btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .nav-link:hover {
+        background-color: transparent;
+    }
+    
+    /* Mejorar accesibilidad táctil */
+    .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    
+    /* Aumentar áreas de toque */
+    .form-check-input {
+        width: 1.8em;
+        height: 1.8em;
+    }
+    
+    .form-check-label {
+        padding-left: 0.75em;
+        line-height: 1.8em;
+    }
+    
+    /* Mejorar scroll en móvil */
+    .table-responsive {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ===== VISIBILIDAD DE FOCUS MEJORADA EN MÓVIL ===== */
+@media (max-width: 768px) {
+    :focus {
+        outline: 3px solid var(--primary-color) !important;
+        outline-offset: 3px !important;
+    }
+    
+    button:focus,
+    a:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline-width: 3px !important;
+        outline-style: solid !important;
+        outline-color: var(--primary-color) !important;
+        outline-offset: 3px !important;
+    }
+}
+
+/* ===== AJUSTES PARA LECTORES DE PANTALLA ===== */
+@media speech {
+    .no-speech {
+        display: none !important;
+    }
+    
+    .speech-only {
+        display: block !important;
+    }
+}
+
+/* ===== AJUSTES DE CONTRASTE AUTOMÁTICOS ===== */
+@media (prefers-contrast: more) {
+    :root {
+        --text-color: #000000;
+        --bg-color: #FFFFFF;
+        --primary-color: #0000AA;
+        --contrast-ratio: 7.0;
+    }
+    
+    .btn {
+        border-width: 2px;
+    }
+    
+    .form-control, .form-select {
+        border-width: 2px;
+    }
+    
+    .table th {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+}
+
+/* ===== MODALIDAD DE MOVIMIENTO REDUCIDO ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ===== SOPORTE PARA DARK MODE DEL SISTEMA ===== */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --text-color: #f8f9fa;
+        --bg-color: #121212;
+        --light-color: #212529;
+        --dark-color: #f8f9fa;
+    }
+}
+
+/* ===== DISPOSITIVOS CON PANTALLA TÁCTIL PEQUEÑA ===== */
+@media (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .btn {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* ===== SOPORTE PARA DISPOSITIVOS DE ENTRADA LIMITADA ===== */
+@media (pointer: coarse) and (hover: none) {
+    /* Ocultar elementos que requieren hover */
+    .tooltip {
+        display: none !important;
+    }
+    
+    /* Mejorar navegación por teclado en táctil */
+    [tabindex]:focus {
+        outline: 3px solid var(--primary-color) !important;
+        outline-offset: 2px !important;
+    }
+}
+
+/* ===== MEJORAS DE RENDIMIENTO EN MÓVIL ===== */
+@media (max-width: 768px) {
+    /* Optimizar imágenes */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Mejorar rendimiento de animaciones */
+    .experiment-area {
+        will-change: transform;
+    }
+    
+    /* Optimizar fuentes */
+    body {
+        font-display: swap;
+    }
+}
